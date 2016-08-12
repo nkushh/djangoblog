@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+	<h2>Hello Reader</h2>
+	<h4>All Blog Posts</h4>
+	{% for blog in posts %}
+		<div>
+			<h4><u><a href="">{{ blog.title }}</a></u></h4>
+			<p>{{ blog.text }}</p>
+			<p><i><a href="#">Read more...</a></i></p>
+			<hr>
+		</div>
+	{% endfor %}
+{% endblock %}
