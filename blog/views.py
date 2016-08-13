@@ -6,3 +6,7 @@ from .models import Post
 def allBlogs(request):
 	posts = Post.objects.filter(published_on__lte=timezone.now()).order_by('created_on')
 	return render(request, 'blog/index.html', {'posts':posts})
+
+def postDetails(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	return render(request, 'blog/blog_post.html', {'post':post})

@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="page-header">
+		<h2>{{ post.title }}</h2>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<p class="lead">{{ post.text }}</p>
+			<p class="text-right">{{ post.published_on }}</p>
+		</div>
+		<!-- Right column -->
+		<div class="col-md-offset-1 col-md-3">
+			<form class="form form-inline" role="form" action="" method="GET">
+				<div class="form-group">
+					<input type="text" name="search" class="form-control" placeholder="Search...">
+				</div>
+			</form>
+			<hr>
+			<div>
+				<h2 class="page-header text-center">Categories</h2>
+				<ul class="list-unstyled text-center">
+					<li><a href="">Python</a></li>
+					<li><a href="">Django</a></li>
+					<li><a href="">PHP</a></li>
+					<li><a href="">Codeigniter</a></li>
+					<li><a href="">Ruby</a></li>
+					<li><a href="">Ruby on Rails</a></li>
+					<li><a href="">HTML</a></li>
+					<li><a href="">CSS</a></li>
+					<li><a href="">javascript</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- End right column -->
+	</div>
+	<!-- End Row -->
+	
+	
+</div>
+{% endblock %}

@@ -3,15 +3,41 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-	<h2>Hello Reader</h2>
-	<h4>All Blog Posts</h4>
-	{% for blog in posts %}
+<div class="container-fluid">
+	<h2 class="page-header">Hello Reader</h2>
+	<div class="col-md-8">
+		<h4>Recent Posts</h4>
+		{% for blog in posts %}
+			<div>
+				<h4><u><a href="{% url 'post-details' pk=blog.pk %}">{{ blog.title }}</a></u></h4>
+				<p>{{ blog.text }}</p>
+				<p style="float: right;">{{ blog.published_on }}</p>
+				<p><i><a href="{% url 'post-details' pk=blog.pk %}">Read more...</a></i></p>
+				<hr>
+			</div>
+		{% endfor %}
+	</div>
+	<div class="col-md-4">
+		<form class="form form-inline" role="form" action="" method="GET">
+			<div class="form-group">
+				<input type="text" name="search" class="form-control" placeholder="Search...">
+			</div>
+		</form>
+		<hr>
 		<div>
-			<h4><u><a href="">{{ blog.title }}</a></u></h4>
-			<p>{{ blog.text }}</p>
-			<p style="float: right;">{{ blog.published_on }}</p>
-			<p><i><a href="#">Read more...</a></i></p>
-			<hr>
+			<h2 class="page-header text-center">Categories</h2>
+			<ul class="list-unstyled text-center">
+				<li><a href="">Python</a></li>
+				<li><a href="">Django</a></li>
+				<li><a href="">PHP</a></li>
+				<li><a href="">Codeigniter</a></li>
+				<li><a href="">Ruby</a></li>
+				<li><a href="">Ruby on Rails</a></li>
+				<li><a href="">HTML</a></li>
+				<li><a href="">CSS</a></li>
+				<li><a href="">javascript</a></li>
+			</ul>
 		</div>
-	{% endfor %}
+	</div>
+</div>
 {% endblock %}
