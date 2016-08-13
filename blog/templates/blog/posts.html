@@ -1,0 +1,18 @@
+{% extends "blog/dashboard_base.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+<div class="page-header"><h2>Posts</h2></div>
+<div class="panel panel-default">
+	<div class="panel-body">
+	{% for post in posts %}
+		<div>
+			<h3><a href="{% url 'details' pk=post.pk %}">{{ post.title }}</a></h3>
+			<p>{{ post.text|slice:":250" }}....<a href="{% url 'details' pk=post.pk %}"> <strong>more details</strong></a></p>
+			<hr>
+		</div>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

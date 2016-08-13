@@ -1,0 +1,17 @@
+{% extends "blog/dashboard_base.html" %}
+
+{% block title %}Post: {{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="page-header"><h2>Details: {{ post.title }}</h2></div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h2>{{ post.title }}</h2>
+		<p>{{ post.text }}</p>
+	</div>
+	<div class="panel-footer">
+		<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+		<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+	</div>
+</div>
+{% endblock %}

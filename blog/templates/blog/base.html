@@ -4,15 +4,16 @@
 <head>
 	<title>{% block title %}{% endblock %}</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
 	<!-- jQuery -->
 	<script src="{% static 'js/jquery.js' %} "></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="navbar-header">
-				<a href="" class="navbar-brand">Blog by Piero</a>
+				<a href="{% url 'index' %}" class="navbar-brand">Blogby Piero</a>
 			</div>
 			<div class="navbar-right">
 				<ul class="nav navbar-nav">

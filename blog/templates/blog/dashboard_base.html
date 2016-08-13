@@ -13,13 +13,13 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a href="" class="navbar-brand">Blog by Piero</a>
+				<a href="{% url 'dashboard' %}" class="navbar-brand">Blog by Piero</a>
 			</div>
 			<div class="pull-right">
 				<ul class="nav navbar-nav">
 					<li><a href=""><span class="glyphicon glyphicon-envelope"></span></a></li>
 					<li><a href=""><span class="glyphicon glyphicon-cog"></span></a></li>
-					<li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+					<li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -29,9 +29,9 @@
 			<!-- Sidebar nav -->
 			<div class="col-md-3">
 				<ul class="sidebar-nav nav nav-pills nav-stacked">
-					<li class="active"><a href=""><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+					<li class="active"><a href="{% url 'dashboard' %}"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
 					<li><a href=""><span class="glyphicon glyphicon-tag"></span> Categories</a></li>
-					<li><a href=""><span class="glyphicon glyphicon-file"></span> Posts</a></li>
+					<li><a href="{% url 'posts' %}"><span class="glyphicon glyphicon-file"></span> Posts</a></li>
 					<li><a href=""><span class="glyphicon glyphicon-user"></span> Users</a></li>
 				</ul>
 			</div>
