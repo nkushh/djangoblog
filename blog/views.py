@@ -5,7 +5,7 @@ from .forms import PostForm
 
 # Create your views here.
 def allBlogs(request):
-	posts = Post.objects.filter(published_on__lte=timezone.now()).order_by('created_on')
+	posts = Post.objects.filter(published_on__lte=timezone.now()).order_by('-created_on')
 	return render(request, 'blog/index.html', {'posts':posts})
 
 def postDetails(request, pk):
@@ -17,7 +17,7 @@ def dashboard(request):
 	return render(request, 'blog/dashboard.html', {'posts':posts})
 
 def newPost(request):
-	if method.request=="POST":
+	if request.method=="POST":
 		form = PostForm(request.POST)
 		if form.is_valid():
 			post = form.save(commit=False)
@@ -27,6 +27,20 @@ def newPost(request):
 			return redirect('post_details', pk=post.pk)
 	else:
 		form = PostForm()
+	return render(request, 'blog/new_post.html', {'form':form})
+
+def editPost(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	if request.method=="POST":
+		form = PostForm(request.POST, instance=post)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user
+			post.published_on = timezone.now()
+			post.save()
+			return redirect('post_details', pk=post.pk)
+	else:
+		form = PostForm(instance=post)
 	return render(request, 'blog/new_post.html', {'form':form})
 
 def post_details(request, pk):

@@ -3,7 +3,7 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-<div class="page-header"><h2>Posts</h2></div>
+<div class="page-header"><h2>Posts</h2> <a href="{% url 'new-post' %}"><button class="btn btn-primary pull-right" type="button"><span class="glphicon glyphicon-plus"></span> New Post</button></a></div>
 <div class="panel panel-default">
 	<div class="panel-body">
 	{% for post in posts %}

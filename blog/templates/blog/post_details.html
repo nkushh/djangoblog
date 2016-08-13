@@ -10,7 +10,7 @@
 		<p>{{ post.text }}</p>
 	</div>
 	<div class="panel-footer">
-		<button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+		<a href="{% url 'edit-post' pk=post.pk %}"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
 		<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
 	</div>
 </div>
