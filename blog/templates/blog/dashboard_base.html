@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.js' %} "></script>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">Blog by Piero</a>
+			</div>
+			<div class="pull-right">
+				<ul class="nav navbar-nav">
+					<li><a href=""><span class="glyphicon glyphicon-envelope"></span></a></li>
+					<li><a href=""><span class="glyphicon glyphicon-cog"></span></a></li>
+					<li><a href=""><span class="glyphicon glyphicon-user"></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Sidebar nav -->
+			<div class="col-md-3">
+				<ul class="sidebar-nav nav nav-pills nav-stacked">
+					<li class="active"><a href=""><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
+					<li><a href=""><span class="glyphicon glyphicon-tag"></span> Categories</a></li>
+					<li><a href=""><span class="glyphicon glyphicon-file"></span> Posts</a></li>
+					<li><a href=""><span class="glyphicon glyphicon-user"></span> Users</a></li>
+				</ul>
+			</div>
+			<!-- End Sidebar -->
+			<!-- Main content -->
+			<div class="col-md-9">
+				{% block content %}{% endblock %}
+			</div>
+			<!-- End Main content -->
+		</div>
+		<!-- End row -->
+	</div>
+	<script src="{% static 'js/bootstrap.min.js' %} "></script>
+</body>
+</html>

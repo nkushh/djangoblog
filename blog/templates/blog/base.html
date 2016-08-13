@@ -9,6 +9,20 @@
 	<script src="{% static 'js/jquery.js' %} "></script>
 </head>
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">Blog by Piero</a>
+			</div>
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'index' %}">Home</a></li>
+					<li><a href="">Contacts</a></li>
+					<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	{% block content %}{% endblock %}
 	<script src="{% static 'js/bootstrap.min.js' %} "></script>
 </body>

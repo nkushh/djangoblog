@@ -1,0 +1,19 @@
+{% extends "blog/dashboard_base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+	<h2>Dashboard</h2>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<h3>All Blog Posts</h3>
+		<ul class="list-unstyled">
+			{% for post in posts %}
+			<li class="lead"><a href="">{{ post.title }} <small>created on: {{ post.created_on }}</small> {% if post.published_on %}Published{% endif %}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% endblock %}

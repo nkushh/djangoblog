@@ -10,3 +10,7 @@ def allBlogs(request):
 def postDetails(request, pk):
 	post = get_object_or_404(Post, pk=pk)
 	return render(request, 'blog/blog_post.html', {'post':post})
+
+def dashboard(request):
+	posts = Post.objects.all()
+	return render(request, 'blog/dashboard.html', {'posts':posts})
