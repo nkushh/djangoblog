@@ -19,7 +19,12 @@
 				<ul class="nav navbar-nav">
 					<li><a href=""><span class="glyphicon glyphicon-envelope"></span></a></li>
 					<li><a href=""><span class="glyphicon glyphicon-cog"></span></a></li>
-					<li><a href="{% url 'index' %}"><span class="glyphicon glyphicon-user"></span></a></li>
+					<li class="dropdown"><a href="{% url 'index' %}" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+					<ul class="dropdown-menu pull-left">
+						<li><a href="">Profile</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+					</ul>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -28,6 +33,10 @@
 		<div class="row">
 			<!-- Sidebar nav -->
 			<div class="col-md-3">
+				<div class="dashboard-id text-center">
+					<span class="glyphicon glyphicon-user" style="font-size:30px;"></span>
+					<h3>{{ user.username }}</h3>
+				</div>
 				<ul class="sidebar-nav nav nav-pills nav-stacked">
 					<li class="active"><a href="{% url 'dashboard' %}"><span class="glyphicon glyphicon-home"></span> Dashboard</a></li>
 					<li><a href=""><span class="glyphicon glyphicon-tag"></span> Categories</a></li>

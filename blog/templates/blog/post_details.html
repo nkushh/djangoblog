@@ -10,8 +10,10 @@
 		<p>{{ post.text }}</p>
 	</div>
 	<div class="panel-footer">
+		{% if not post.published_on %}
+		<a href="{% url 'publish-post' pk=post.pk %}"><button class="btn btn-success" type="button"><span class="glyphicon glyphicon-edit"></span> Publish</button></a>{% endif %}
 		<a href="{% url 'edit-post' pk=post.pk %}"><button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-edit"></span> Edit</button></a>
-		<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+		<a href="{% url 'delete-post' pk=post.pk %}"><button class="btn btn-danger" type="button" onclick="return confirm('Are you sure?');"><span class="glyphicon glyphicon-trash"></span> Delete</button></a>
 	</div>
 </div>
 {% endblock %}

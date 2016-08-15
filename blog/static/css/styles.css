@@ -1,2 +1,6 @@
 .navbar{border-radius: 0px;}
 .sidebar-nav{font-size: 16px;}
+
+.dashboard-id{background-color: grey;
+			  color: white;
+			  margin-top: 0px;}

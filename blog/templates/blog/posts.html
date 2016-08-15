@@ -3,16 +3,21 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-<div class="page-header"><h2>Posts</h2> <a href="{% url 'new-post' %}"><button class="btn btn-primary pull-right" type="button"><span class="glphicon glyphicon-plus"></span> New Post</button></a></div>
+<div class="page-header"><div class="pull-right"><a href="{% url 'new-post' %}"><button class="btn btn-primary" type="button"><span class="glphicon glyphicon-plus"></span> New Post</button></a></div><h2>Posts&nbsp&nbsp <small><a href="{% url 'all-drafts' %}">Drafts</a>&nbsp |&nbsp <a href="{% url 'all-published' %}">Published</a></small></h2></div>
 <div class="panel panel-default">
 	<div class="panel-body">
+	{% if posts %}
 	{% for post in posts %}
 		<div>
 			<h3><a href="{% url 'details' pk=post.pk %}">{{ post.title }}</a></h3>
 			<p>{{ post.text|slice:":250" }}....<a href="{% url 'details' pk=post.pk %}"> <strong>more details</strong></a></p>
+			<p class="text-danger text-right"><strong>Created on:</strong> {{ post.created_on }}</p>
 			<hr>
 		</div>
 	{% endfor %}
+	{% else %}
+	<h2 class="text-danger">No posts to display</h2>
+	{% endif %}
 	</div>
 </div>
 {% endblock %}
